@@ -11,3 +11,32 @@ About the Founder
 Great innovations are not defined by age, but by vision. Monobat OS was founded and is currently being spearheaded by a dedicated 10-year-old developer from India, proving that the next generation is ready to lead the global tech revolution.
 Let’s collaborate, innovate, and build a self-reliant digital future together
 
+---
+
+## Technical Overview — GPU Driver v7.0
+
+**21,000+ lines of real register-level C code. Zero simulation.**
+
+### Supported Hardware
+- Mali Bifrost — G51, G71, G76
+- Mali Valhall — G57, G77, G78, G710
+- Adreno A6xx — Snapdragon 845, 855, 865
+- Adreno A7xx — Snapdragon 8 Gen 1, 2, 3
+- Adreno A890 — Snapdragon 8 Elite (SM8750)
+
+### Driver Sections
+
+| Section | Description |
+|---|---|
+| S1–S2 | Mali HAL + Full Rendering Pipeline |
+| S3 | 3D Pipeline — MVP transforms, frustum culling, lighting |
+| S4–S5 | Adreno A6xx/A7xx/A890 — PM4, VFD, HLSQ, GRAS |
+| S6 | Cascaded Shadow Maps — 4 cascades, PCF soft shadows |
+| S7 | PBR + Image-Based Lighting — GGX BRDF, IBL, cubemap |
+| S8 | OpenGL ES 3.1 API layer |
+| S9 | Vulkan 1.1 ICD — bare-metal |
+| S10 | SPIR-V → IR3 Shader Compiler — no NIR, no Mesa |
+
+### License
+MIT — free to use, modify, distribute.  
+Attribution: **"GPU driver by Monobat OS / Ape Dev Studios"**
